@@ -1,0 +1,56 @@
+﻿<Window xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"  
+        x:Class="GradientHeightMap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GradientHeightMap"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="720" Width="1280">
+    <Window.DataContext>
+        <local:HeightMapViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <dxc:Chart3DControl>
+            <dxc:Chart3DControl.Titles>
+                <dxc:Title Content="Height Map" HorizontalAlignment="Center"/>
+            </dxc:Chart3DControl.Titles>
+            <dxc:Chart3DControl.Legends>
+                <dxc:Legend HorizontalPosition="Right"
+                            VerticalPosition="Top"
+                            Orientation="Horizontal">
+                </dxc:Legend>
+            </dxc:Chart3DControl.Legends>
+
+            <!--region #SeriesPoint3DMatrixAdapter-->
+            <dxc:Series3DStorage>
+                <dxc:Series3D DisplayName="Height Map">
+                    <dxc:SeriesPoint3DMatrixAdapter XArguments="{Binding ImageData.XArguments}" 
+                                                    YArguments="{Binding ImageData.YArguments}" 
+                                                    Values="{Binding ImageData.Values}"/>
+                    <!--endregion #SeriesPoint3DMatrixAdapter-->
+                    <!--region #GradientFillStyle-->
+                    <dxc:Series3D.View>
+                        <dxc:SurfaceSeriesView>
+                            <dxc:SurfaceSeriesView.FillStyle>
+                                <dxc:GradientFillStyle LegendTextPattern="{}{V}">
+                                    <dxc:GradientFillStyle.ColorStops>
+                                        <dxc:ColorStop Color="#FF4472C4" Offset="0%"/>
+                                        <dxc:ColorStop Color="#FF5B9BD5" Offset="25%"/>
+                                        <dxc:ColorStop Color="#FF70AD47" Offset="50%"/>
+                                        <dxc:ColorStop Color="#FFFFC000" Offset="75%"/>
+                                        <dxc:ColorStop Color="#FFED7D31" Offset="100%"/>
+                                    </dxc:GradientFillStyle.ColorStops>
+                                </dxc:GradientFillStyle>
+                            </dxc:SurfaceSeriesView.FillStyle>
+                        </dxc:SurfaceSeriesView>
+                    </dxc:Series3D.View>
+                    <!--endregion #GradientFillStyle-->
+                    <!--region #CloseTag-->
+                </dxc:Series3D>
+            </dxc:Series3DStorage>
+            <!--endregion #CloseTag-->
+        </dxc:Chart3DControl>
+    </Grid>
+</Window>
