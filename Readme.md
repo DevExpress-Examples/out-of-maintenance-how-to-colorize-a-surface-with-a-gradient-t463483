@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [ImageDataModel.cs](./CS/GradientHeightMap/Model/ImageDataModel.cs) (VB: [ImageDataModel.vb](./VB/GradientHeightMap/Model/ImageDataModel.vb))
+* **[MainWindow.xaml](./CS/GradientHeightMap/View/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/GradientHeightMap/View/MainWindow.xaml))**
+* [HeightMapViewModel.cs](./CS/GradientHeightMap/ViewModel/HeightMapViewModel.cs) (VB: [HeightMapViewModel.vb](./VB/GradientHeightMap/ViewModel/HeightMapViewModel.vb))
+<!-- default file list end -->
 # How to colorize a surface with a gradient
 
 
